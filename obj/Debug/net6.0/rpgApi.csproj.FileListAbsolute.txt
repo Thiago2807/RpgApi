@@ -517,3 +517,7 @@ C:\Users\Thiago da S. Roque\Desktop\RpgApi\obj\Debug\net6.0\refint\RpgApi.dll
 C:\Users\Thiago da S. Roque\Desktop\RpgApi\obj\Debug\net6.0\RpgApi.pdb
 C:\Users\Thiago da S. Roque\Desktop\RpgApi\obj\Debug\net6.0\RpgApi.genruntimeconfig.cache
 C:\Users\Thiago da S. Roque\Desktop\RpgApi\obj\Debug\net6.0\ref\RpgApi.dll
+C:\Users\Thiago da S. Roque\Desktop\RpgApi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Thiago da S. Roque\Desktop\RpgApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Thiago da S. Roque\Desktop\RpgApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Thiago da S. Roque\Desktop\RpgApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

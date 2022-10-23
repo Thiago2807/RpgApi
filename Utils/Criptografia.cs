@@ -16,15 +16,18 @@ namespace RpgApi.Utils // o NameSpace deve estar relacionado ao caminho do arqui
         }
 
         public static bool VerificarPasswordHash (string password, byte[] hash, byte[] salt) {
-            using (var hmac = new HMACSHA512(salt))
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(salt))
             {
-                var computeHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                byte[] computeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
 
                 for (int i = 0; i < computeHash.Length; i++) 
                 {
-                    if (computeHash[i] != hash[i])  return false; 
+                    if (computeHash[i] != hash[i])
+                    {
+                        return ( false ); 
+                    }
                 } 
-                return true;
+                return ( true );
             }
        }
     }

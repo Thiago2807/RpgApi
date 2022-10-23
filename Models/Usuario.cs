@@ -1,4 +1,3 @@
-using Microsoft.Win32;
 using RpgApi.Controllers;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
