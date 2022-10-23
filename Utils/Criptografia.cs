@@ -1,6 +1,7 @@
 using RpgApi.Models;
 using RpgApi.Data;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace RpgApi.Utils // o NameSpace deve estar relacionado ao caminho do arquivo
 {
@@ -8,12 +9,12 @@ namespace RpgApi.Utils // o NameSpace deve estar relacionado ao caminho do arqui
     {
         public static void CriarPasswordHash(string password, out byte[] hash, out byte[] salt)
         {
-            using (var hmac = new HMACSHA512())
-            {
+            using (var hmac = new HMACSHA512()) {
                 salt = hmac.Key;
-                hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                hash = Encoding.UTF8.GetBytes(password);
             }
         }
+
         public static bool VerificarPasswordHash (string password, byte[] hash, byte[] salt) {
             using (var hmac = new HMACSHA512(salt))
             {

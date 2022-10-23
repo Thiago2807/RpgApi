@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using RpgApi.Data;
 using RpgApi.Models;
 using RpgApi.Utils;
+using System.Text.RegularExpressions;
 
 namespace RpgApi.Controllers
 {
@@ -64,5 +65,42 @@ namespace RpgApi.Controllers
         }
 
        }
+
+       public async Task<IActionResult> Add (Armas novaArma) {
+        try {
+            if (novaArma.Dano == 0)
+                throw new System.Exception ("O dano da arma não pode ser igual a zero.");
+
+            Personagem p = await _context.Personagens
+                .FirstOrDefaultAsync ( x => x.Id == novaArma.PersonagemId );
+
+            if ( p == null)
+                throw new System.Exception ( "Não exixte nenhum personagem com esse id." );
+        
+            await _context.Armas.AddAsync(novaArma);
+            await _context.SaveChangesAsync();
+
+            return Ok( novaArma.PersonagemId );
+        }
+        catch (System.Exception ex) {
+            return BadRequest (ex.Message);
+        }
+       }
+
+    //    [HttpPut("AlterarSenha")]
+    //    public async Task<IActionResult> AlterarSenha (string NovoPassword, int id) {
+    //    }
+
+        [HttpGet("ListarUsuarios")]
+        public async Task<IActionResult> ListarUsuarios() {
+            try {
+                List<Usuario> TodosUsuarios = _context.Usuarios.ToList();
+
+                return Ok (TodosUsuarios);
+            }
+            catch (System.Exception ex) {
+                return BadRequest (ex.Message);
+            }
+        }
     }
 }

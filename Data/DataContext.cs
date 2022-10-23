@@ -7,10 +7,8 @@ namespace RpgApi.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
-        {
-            
-        }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) {  }
+
         public DbSet<Personagem> Personagens { get; set; }
         public DbSet<Armas> Armas { get ;set; }
         public DbSet<Usuario> Usuarios{get;set;}
@@ -27,6 +25,7 @@ namespace RpgApi.Data
                 new Personagem() { Id = 5, Nome = "Hobbit", PontosVida=100, Forca=20, Defesa=17, Inteligencia=31, Classe=ClasseEnum.Cavaleiro },
                 new Personagem() { Id = 6, Nome = "Celeborn", PontosVida=100, Forca=21, Defesa=13, Inteligencia=34, Classe=ClasseEnum.Clerigo },
                 new Personagem() { Id = 7, Nome = "Radagast", PontosVida=100, Forca=25, Defesa=11, Inteligencia=35, Classe=ClasseEnum.Mago }
+        
             );
             
             modelBuilder.Entity<Armas>().HasData(

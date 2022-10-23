@@ -11,6 +11,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 //Comando para criar o script - dotnet ef migrations script -o ./script01_TabelaPersonagens.sql
 //Comando para publicar a API - dotnet publish -c release -o ./publish
 //Add services to the container.
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
